@@ -398,6 +398,8 @@ public class App : MonoBehaviour
         obj_card.transform.SetParent(this.arean_all_card);
         obj_card.transform.localPosition = Vector3.zero;
         obj_card.transform.localScale = new Vector3(this.cards_prefab[index].transform.localScale.x, this.cards_prefab[index].transform.localScale.y, 1f);
+        Vector2 size_card = obj_card.GetComponent<RectTransform>().sizeDelta;
+        this.arean_all_card.GetComponent<RectTransform>().sizeDelta = new Vector2(size_card.x, size_card.y);
         this.card_id_cur = obj_card.GetComponent<Card_ID>();
         this.card_id_cur.On_load(this);
         box?.close();
