@@ -217,8 +217,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: On the occasion of the Marriage Ceremony
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ad3b4e4b5a911e54b9d375bbe9fc7f57, type: 2}
-  m_sharedMaterial: {fileID: -5668885664898303955, guid: ad3b4e4b5a911e54b9d375bbe9fc7f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -349,10 +349,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mathel Adison
+  m_text: Fevilia Sawandayani
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ad3b4e4b5a911e54b9d375bbe9fc7f57, type: 2}
-  m_sharedMaterial: {fileID: -5668885664898303955, guid: ad3b4e4b5a911e54b9d375bbe9fc7f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0e282ca7c7caa314db9e135aa07cb26a, type: 2}
+  m_sharedMaterial: {fileID: -966684796690816049, guid: 0e282ca7c7caa314db9e135aa07cb26a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -483,10 +483,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mathel Adison
+  m_text: Figih Dermawan Panca Satria
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ad3b4e4b5a911e54b9d375bbe9fc7f57, type: 2}
-  m_sharedMaterial: {fileID: -5668885664898303955, guid: ad3b4e4b5a911e54b9d375bbe9fc7f57, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0e282ca7c7caa314db9e135aa07cb26a, type: 2}
+  m_sharedMaterial: {fileID: -966684796690816049, guid: 0e282ca7c7caa314db9e135aa07cb26a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
