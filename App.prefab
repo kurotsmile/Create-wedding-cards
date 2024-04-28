@@ -3172,7 +3172,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5436707045067246621}
   - component: {fileID: 5294091103224583664}
-  - component: {fileID: 7315067051299803777}
   m_Layer: 0
   m_Name: App
   m_TagString: Untagged
@@ -3212,7 +3211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_app_sell: 1
   carrot: {fileID: 0}
-  tool: {fileID: 7315067051299803777}
+  tool: {fileID: 0}
   steep_zoom: 0.3
   list_sp_bk:
   - {fileID: 21300000, guid: 3dfbf1107e62c554db9e07ab54cc1a18, type: 3}
@@ -3243,20 +3242,6 @@ MonoBehaviour:
   icon_import: {fileID: 21300000, guid: 025e4740d6631524fb868ac9a3672035, type: 3}
   arean_all_card: {fileID: 8010152525531857274}
   img_bk_card: {fileID: 8971384001312437402}
---- !u!114 &7315067051299803777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6023110175973382143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cb44e082dc909c4c82352e18a90d72d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  app: {fileID: 5294091103224583664}
-  sp_icon_city: {fileID: 21300000, guid: f108fcf44eaa0104b93a7f40acf9c01d, type: 3}
 --- !u!1 &6133126512663583181
 GameObject:
   m_ObjectHideFlags: 0

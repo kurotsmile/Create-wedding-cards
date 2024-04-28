@@ -7,16 +7,13 @@ using UnityEngine.UI;
 public class App : MonoBehaviour
 {
     [Header("Obj Main")]
-    public bool is_app_sell;
     public Carrot.Carrot carrot;
-    public Tool tool;
     public float steep_zoom = 0.5f;
 
     [Header("Obj App")]
     public Sprite[] list_sp_bk;
     public IList<Sprite> list_bk_img;
     public Image image_btn_visible;
-    public GameObject obj_btn_setting;
     public GameObject obj_menu_bottom;
     public GameObject obj_menu_right;
     public GameObject obj_menu_left;
@@ -53,13 +50,6 @@ public class App : MonoBehaviour
     {
         QualitySettings.antiAliasing = 0;
         this.carrot.Load_Carrot(this.Check_exit_app);
-        if (this.is_app_sell)
-        {
-            this.obj_btn_setting.SetActive(false);
-            this.carrot.ads.set_status_ads(false);
-        }
-        else
-            this.obj_btn_setting.SetActive(true);
 
         this.image_btn_visible.sprite = this.carrot.icon_carrot_visible_off;
 
@@ -75,16 +65,11 @@ public class App : MonoBehaviour
         this.list_bk_img = new List<Sprite>();
         for (int i = 0; i < this.list_sp_bk.Length; i++) this.list_bk_img.Add(this.list_sp_bk[i]);
         this.Load_bk_img(this.index_bk_select);
-        this.tool.On_load();
     }
 
     private void Check_exit_app()
     {
-        if (this.is_app_sell)
-        {
-            this.carrot.app_exit();
-            this.carrot.set_no_check_exit_app();
-        }
+
     }
 
     public void Btn_edit_info()
@@ -291,7 +276,7 @@ public class App : MonoBehaviour
     {
         carrot.play_sound_click();
         this.txt_infor_edit_temp = txt;
-        this.box_input = this.carrot.show_input("Edit info Item", "Edit info Item", txt.text);
+        this.box_input = this.carrot.Show_input("Edit info Item", "Edit info Item", txt.text);
         this.box_input.set_act_done(Act_done_edit_info_item);
     }
 
@@ -333,11 +318,6 @@ public class App : MonoBehaviour
                 btn_list.set_color(this.carrot.color_highlight);
                 Destroy(btn_list.GetComponent<Button>());
             }
-
-            Carrot_Box_Btn_Item btn_city = item_card.create_item();
-            btn_city.set_icon(this.icon_city);
-            btn_city.set_color(this.carrot.color_highlight);
-            btn_city.set_act(() => this.tool.Show_box_select_city_for_card(index));
         }
     }
 

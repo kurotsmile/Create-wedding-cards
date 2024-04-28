@@ -246,8 +246,6 @@ public class Card_ID : MonoBehaviour
 
     public void Show_edit_all_item()
     {
-        string code_city_sel = PlayerPrefs.GetString("city_for_card_" + this.app.get_index_card(), "");
-
         this.app.carrot.play_sound_click();
         this.box = this.app.carrot.Create_Box();
         this.box.set_title("Edit info");
@@ -272,23 +270,11 @@ public class Card_ID : MonoBehaviour
                 item_info.set_type(Box_Item_Type.box_value_input);
                 item_info.set_val(this.obj_item[i].GetComponent<TextMeshProUGUI>().text.Trim());
 
-                if (code_city_sel != "")
-                {
-                    Carrot_Box_Btn_Item btn_id_city = item_info.create_item();
-                    btn_id_city.set_icon(this.app.tool.sp_icon_city);
-                    btn_id_city.set_act(() => this.app.tool.change_txt_for_id_city(item_info));
-                    btn_id_city.set_color(app.carrot.color_highlight);
-                }
 
                 Carrot_Box_Btn_Item btn_uppercase = item_info.create_item();
                 btn_uppercase.set_icon(this.app.icon_uppercase);
                 btn_uppercase.set_act(() => Act_uppercase(item_info));
                 btn_uppercase.set_color(app.carrot.color_highlight);
-
-                Carrot_Box_Btn_Item btn_code_city = item_info.create_item();
-                btn_code_city.set_icon(this.app.icon_city);
-                btn_code_city.set_color(app.carrot.color_highlight);
-                btn_code_city.set_act(() => this.app.tool.Show_box_select_city(item_info));
             }
 
             if (obj_types[i] == Card_Item_Type.card_text_space)
@@ -529,13 +515,13 @@ public class Card_ID : MonoBehaviour
         if (this.obj_types[index] == Card_Item_Type.card_txt|| this.obj_types[index] == Card_Item_Type.card_sex)
         {
             this.txt_infor_edit_temp = obj_item[index].GetComponent<TextMeshProUGUI>();
-            this.box_input = this.app.carrot.show_input(this.s_name_item[index], this.s_tip_item[index], txt_infor_edit_temp.text.Trim());
+            this.box_input = this.app.carrot.Show_input(this.s_name_item[index], this.s_tip_item[index], txt_infor_edit_temp.text.Trim());
             this.box_input.set_icon(this.sp_icon_item[index]);
             this.box_input.set_act_done(Act_done_edit_info_item);
             if (index == this.index_date_publish) this.box_input.inp_text.text = PlayerPrefs.GetString("index_date_publish");
         } else if (this.obj_types[index] == Card_Item_Type.card_text_space) {
             this.txt_infor_edit_temp = obj_item[index].GetComponent<TextMeshProUGUI>();
-            this.box_input = this.app.carrot.show_input(this.s_name_item[index], this.s_tip_item[index], txt_infor_edit_temp.text.Trim());
+            this.box_input = this.app.carrot.Show_input(this.s_name_item[index], this.s_tip_item[index], txt_infor_edit_temp.text.Trim());
             this.box_input.set_icon(this.sp_icon_item[index]);
             this.box_input.set_act_done(Act_done_edit_info_item_space_text);
         }
@@ -615,7 +601,7 @@ public class Card_ID : MonoBehaviour
 
     private void Act_show_create_qr_data()
     {
-        this.box_input = this.app.carrot.show_input("Create Data Qr code","Enter data text to create QR Code");
+        this.box_input = this.app.carrot.Show_input("Create Data Qr code","Enter data text to create QR Code");
         box_input.set_act_done(act_done_create_qr_code);
     }
 
