@@ -3209,9 +3209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8273698b56281b94bbd37c42e3eea64b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_app_sell: 1
   carrot: {fileID: 0}
-  tool: {fileID: 0}
   steep_zoom: 0.3
   list_sp_bk:
   - {fileID: 21300000, guid: 3dfbf1107e62c554db9e07ab54cc1a18, type: 3}
@@ -3223,7 +3221,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1fd408b6369df3d40b25c8244def6272, type: 3}
   - {fileID: 21300000, guid: 30e965df1cec46246941457928f0cf93, type: 3}
   image_btn_visible: {fileID: 3001591381451986311}
-  obj_btn_setting: {fileID: 5823243600170466655}
   obj_menu_bottom: {fileID: 5883611082732446048}
   obj_menu_right: {fileID: 2793857403661449746}
   obj_menu_left: {fileID: 2872270462432661645}
@@ -3859,7 +3856,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -813.99994, y: -547}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8957355887113496470
 CanvasRenderer:
