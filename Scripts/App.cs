@@ -8,7 +8,8 @@ public class App : MonoBehaviour
 {
     [Header("Obj Main")]
     public Carrot.Carrot carrot;
-    public float steep_zoom = 0.5f;
+    public Carrot_File file;
+    public float steep_zoom = 0.3f;
 
     [Header("Obj App")]
     public Sprite[] list_sp_bk;
@@ -38,6 +39,9 @@ public class App : MonoBehaviour
     public Transform arean_all_card;
     public Image img_bk_card;
 
+    [Header("Obj Sound")]
+    public AudioSource sound_bk;
+
     private Carrot_Box box;
     private Carrot_Box box_layout;
     private Text txt_infor_edit_temp = null;
@@ -50,17 +54,14 @@ public class App : MonoBehaviour
     {
         QualitySettings.antiAliasing = 0;
         this.carrot.Load_Carrot(this.Check_exit_app);
+        this.carrot.game.load_bk_music(this.sound_bk);
 
         this.image_btn_visible.sprite = this.carrot.icon_carrot_visible_off;
-
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
 
         if (PlayerPrefs.GetInt("index_style_select", -1) != -1) this.index_style_select = PlayerPrefs.GetInt("index_style_select", 0);
         if (PlayerPrefs.GetInt("index_bk_select", -1) != -1) this.index_bk_select = PlayerPrefs.GetInt("index_bk_select", 0);
 
         this.Load_style_card(this.index_style_select);
-
 
         this.list_bk_img = new List<Sprite>();
         for (int i = 0; i < this.list_sp_bk.Length; i++) this.list_bk_img.Add(this.list_sp_bk[i]);

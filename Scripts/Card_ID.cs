@@ -18,9 +18,7 @@ public class Card_ID : MonoBehaviour
     public string s_tip;
     public string s_keyword_space = "";
     public int max_length_keyword_space = 63;
-    public int index_date_publish=-1;
     public Card_ID_Layout[] layout;
-    public bool is_auto_load_code = false;
 
     public int[] qr_index;
 
@@ -46,14 +44,10 @@ public class Card_ID : MonoBehaviour
     private Carrot_Box_Item item_temp = null;
     private Image img_qr_temp = null;
     private string s_data_qr_code = "";
-    private int index_show_edit_temp = -1;
 
     public void On_load(App app)
     {
         this.app= app;
-
-        if (this.index_date_publish != -1) this.obj_item[this.index_date_publish].GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetString("index_date_publish", "");
-
         for(int i = 0; i < obj_item.Length; i++)
         {
             var index = i;
@@ -73,94 +67,6 @@ public class Card_ID : MonoBehaviour
                 obj_item[i].GetComponent<TextMeshProUGUI>().paragraphSpacing += this.s_keyword_space.Length;
             }
         }
-        this.s_data_qr_code = "";
-
-        if (this.is_auto_load_code)
-        {
-            string txt_info_no_cccd = PlayerPrefs.GetString("txt_info_no_cccd", "");
-            string txt_info_date_of_birth = PlayerPrefs.GetString("txt_info_date_of_birth", "");
-            string txt_info_date_of_expiry = PlayerPrefs.GetString("txt_info_date_of_expiry", "");
-            string txt_info_full_name = PlayerPrefs.GetString("txt_info_full_name", "");
-            string txt_info_sex = PlayerPrefs.GetString("txt_info_sex", "");
-            Debug.Log("Sex:" + txt_info_sex);
-            if (txt_info_no_cccd != ""&&txt_info_full_name!=""&&txt_info_date_of_birth!="")
-            {
-                txt_info_full_name= txt_info_full_name.Replace(" ", "<<");
-                txt_info_full_name=this.RemoveVietnameseCharacters(txt_info_full_name.ToUpper());
-                string s_code = "IDVNM" + txt_info_no_cccd.Substring(3) + "0" + txt_info_no_cccd + "<<3" 
-                + GetReversedDate(txt_info_date_of_birth) 
-                + get_random_sex(txt_info_sex) + GetReversedDate(txt_info_date_of_birth,false)
-                + "8"
-                + "VNM"
-                + "<<<<<<<<<<<2"
-                + ReplaceSecondDoubleLessThan(txt_info_full_name);
-                s_code = s_code.ToUpper();
-                if (s_code.Length < 90)
-                {
-                    int fillCount = 90 - s_code.Length;
-                    string filler = new string('<', fillCount);
-                    s_code = s_code + filler;
-                }
-                this.obj_item[2].GetComponent<TextMeshProUGUI>().text = s_code;
-                Debug.Log("Code mat sau:"+s_code);
-            }
-        }
-    }
-
-    private string get_random_sex(string sex)
-    {
-        string s_sex;
-        if (sex == "Nam")
-        {
-            s_sex = "M";
-        }
-        else
-        {
-            s_sex = "F";
-        }
-
-        int n_1 = UnityEngine.Random.Range(0, 10);
-        int n_2 = UnityEngine.Random.Range(0, 10);
-        int n_3 = UnityEngine.Random.Range(0, 10);
-        return n_1+""+s_sex+n_2+n_3;
-    }
-
-    public  string ReplaceSecondDoubleLessThan(string input)
-    {
-        int firstIndex = input.IndexOf("<<");
-        if (firstIndex != -1)
-        {
-            int secondIndex = input.IndexOf("<<", firstIndex + 1);
-            if (secondIndex != -1)
-            {
-                return input.Substring(0, secondIndex) + "<" + input.Substring(secondIndex + 2);
-            }
-        }
-        return input;
-    }
-
-    public string GetReversedDate(string dateString,bool is_get_year=true)
-    {
-        dateString = dateString.Replace("/", "");
-        DateTime date = DateTime.ParseExact(dateString, "ddMMyyyy", null);
-
-        int day = date.Day;
-        int month = date.Month;
-        int year = date.Year % 100;
-        string s_year = string.Format("{0:00}",year);
-        string s_month =string.Format("{0:00}", month);
-        string s_day = string.Format("{0:00}", day);
-        if(is_get_year)
-            return s_year+s_month + s_day;
-        else
-            return s_month+s_day;
-    }
-
-    private string ReverseString(string input)
-    {
-        char[] charArray = input.ToCharArray();
-        Array.Reverse(charArray);
-        return new string(charArray);
     }
 
     private string RemoveVietnameseCharacters(string input)
@@ -311,11 +217,6 @@ public class Card_ID : MonoBehaviour
                 btn_camera.set_act(() => this.app.carrot.camera_pro.Show_camera(Act_camera_for_avatar));
             }
 
-            if (i == index_date_publish)
-            {
-                item_info.set_val(PlayerPrefs.GetString("index_date_publish",""));
-            }
-
             item_info.check_type();
             this.list_item_edit_info_box.Add(item_info);
 
@@ -427,22 +328,6 @@ public class Card_ID : MonoBehaviour
                 this.img_qr_temp = this.obj_item[i].GetComponent<Image>();
             }
 
-            if (i == this.index_date_publish)
-            {
-                PlayerPrefs.SetString("index_date_publish", this.obj_item[i].GetComponent<TextMeshProUGUI>().text);
-            }
-
-            if (this.obj_item[i].name== "txt_code")
-            {
-                string s_code = this.obj_item[i].GetComponent<TextMeshProUGUI>().text;
-                if (s_code.Length < 90)
-                {
-                    int fillCount = 90 - s_code.Length;
-                    string filler = new string('<', fillCount);
-                    this.obj_item[i].GetComponent<TextMeshProUGUI>().text = s_code + filler;
-                }
-            }
-
         }
 
         if (this.qr_index.Length > 0)
@@ -510,7 +395,6 @@ public class Card_ID : MonoBehaviour
 
     public void Show_edit_item(int index)
     {
-        this.index_show_edit_temp = index;
         this.app.carrot.play_sound_click();
         if (this.obj_types[index] == Card_Item_Type.card_txt|| this.obj_types[index] == Card_Item_Type.card_sex)
         {
@@ -518,7 +402,6 @@ public class Card_ID : MonoBehaviour
             this.box_input = this.app.carrot.Show_input(this.s_name_item[index], this.s_tip_item[index], txt_infor_edit_temp.text.Trim());
             this.box_input.set_icon(this.sp_icon_item[index]);
             this.box_input.set_act_done(Act_done_edit_info_item);
-            if (index == this.index_date_publish) this.box_input.inp_text.text = PlayerPrefs.GetString("index_date_publish");
         } else if (this.obj_types[index] == Card_Item_Type.card_text_space) {
             this.txt_infor_edit_temp = obj_item[index].GetComponent<TextMeshProUGUI>();
             this.box_input = this.app.carrot.Show_input(this.s_name_item[index], this.s_tip_item[index], txt_infor_edit_temp.text.Trim());
@@ -614,7 +497,6 @@ public class Card_ID : MonoBehaviour
 
     private void Act_done_edit_info_item(string val)
     {
-        if(this.index_show_edit_temp==this.index_date_publish)  PlayerPrefs.SetString("index_date_publish", val);
         this.app.carrot.play_sound_click();
         this.txt_infor_edit_temp.text = val;
         if (this.box_input != null) this.box_input.close();
