@@ -2052,7 +2052,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1024, y: 680}
@@ -3358,6 +3358,7 @@ MonoBehaviour:
   cards_prefab:
   - {fileID: 7897323944450413619, guid: 0bf6f402d38e5e647bbc6146f28c7701, type: 3}
   - {fileID: 7897323944450413619, guid: eb45959e4c7e97e438904aefff58f20e, type: 3}
+  - {fileID: 7897323944450413619, guid: 1e0e06e2300abd048b081a451dc1c675, type: 3}
   icon_camera: {fileID: 21300000, guid: e2dcbcefac2693548b43e454aa586d6a, type: 3}
   icon_cardID: {fileID: 21300000, guid: 0bac8def07435cf4d86d89e634640c68, type: 3}
   icon_uppercase: {fileID: 21300000, guid: bc055a4c979caa547b3bd8717116fe7c, type: 3}

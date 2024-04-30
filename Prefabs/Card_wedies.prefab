@@ -1234,7 +1234,7 @@ GameObject:
   - component: {fileID: 2007392867930426466}
   - component: {fileID: 7217072413279580396}
   m_Layer: 5
-  m_Name: Card_romantic_autumn 1
+  m_Name: Card_wedies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,14 +1282,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3831881d730ed64d9825128b70150e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 0ade91cc963878d4ea0199e48b6ba4be, type: 3}
-  s_name: Romantic autumn card
-  s_tip: Card with romantic autumn and gentle warm tones with integrated avatar photo
+  icon: {fileID: 21300000, guid: decec6a1d64860848aa20dd92517b8a1, type: 3}
+  s_name: Wedies wedding invitations
+  s_tip: Wedies wedding invitations with a simple yet luxurious style
   s_keyword_space: 
   max_length_keyword_space: 0
-  index_date_publish: -1
   layout: []
-  is_auto_load_code: 0
   qr_index: 
   panel_info: {fileID: 6997514133020431364}
   obj_item:

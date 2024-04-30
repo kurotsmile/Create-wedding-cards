@@ -2422,10 +2422,8 @@ MonoBehaviour:
   s_tip: Leaf-themed wedding invitation with integrated qr code
   s_keyword_space: 
   max_length_keyword_space: 0
-  index_date_publish: -1
   layout: []
-  is_auto_load_code: 0
-  qr_index: 
+  qr_index: 01000000030000000500000006000000070000000c0000000d000000
   panel_info: {fileID: 6997514133020431364}
   obj_item:
   - {fileID: 2505866588301793077}
