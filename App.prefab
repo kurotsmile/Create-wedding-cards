@@ -3227,6 +3227,7 @@ MonoBehaviour:
   tr_panel_card: {fileID: 8010152525531857274}
   cards_prefab:
   - {fileID: 7897323944450413619, guid: 0bf6f402d38e5e647bbc6146f28c7701, type: 3}
+  - {fileID: 7897323944450413619, guid: eb45959e4c7e97e438904aefff58f20e, type: 3}
   icon_camera: {fileID: 21300000, guid: e2dcbcefac2693548b43e454aa586d6a, type: 3}
   icon_cardID: {fileID: 21300000, guid: 0bac8def07435cf4d86d89e634640c68, type: 3}
   icon_uppercase: {fileID: 21300000, guid: bc055a4c979caa547b3bd8717116fe7c, type: 3}
