@@ -369,9 +369,8 @@ public class Card_ID : MonoBehaviour
     {
         this.item_temp = item_sel;
         this.app.carrot.play_sound_click();
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
-        FileBrowser.ShowLoadDialog(Act_done_select_avatar, null, FileBrowser.PickMode.Files);
+        app.file.Set_filter(Carrot_File_Data.Image);
+        app.file.Open_file(Act_done_select_avatar);
     }
 
     private void Act_done_select_avatar(string[] path)
@@ -464,9 +463,8 @@ public class Card_ID : MonoBehaviour
     private void Act_show_sel_qr_file()
     {
         this.app.carrot.play_sound_click();
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
-        FileBrowser.ShowLoadDialog(Act_show_sel_qr_file_done, null, FileBrowser.PickMode.Files);
+        this.app.file.Set_filter(Carrot_File_Data.Image);
+        this.app.file.Open_file(Act_show_sel_qr_file_done);
     }
 
     private void Act_show_sel_qr_file_done(string[] path)
@@ -534,9 +532,8 @@ public class Card_ID : MonoBehaviour
     private void Act_sel_photo_file(FileBrowser.OnSuccess act_done)
     {
         this.app.carrot.play_sound_click();
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
-        FileBrowser.ShowLoadDialog(act_done, null, FileBrowser.PickMode.Files);
+        this.app.file.Set_filter(Carrot_File_Data.Image);
+        this.app.file.Open_file(act_done);
     }
 
     private void Act_sel_photo_file_done(string[] path)
@@ -579,9 +576,8 @@ public class Card_ID : MonoBehaviour
     private void Act_import_data_json()
     {
         app.carrot.play_sound_click();
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Json Data", ".json", ".jsons"), new FileBrowser.Filter("Text Data", ".txt"));
-        FileBrowser.SetDefaultFilter(".json");
-        FileBrowser.ShowLoadDialog(Act_import_data_json_done, null, FileBrowser.PickMode.Files);
+        app.file.Set_filter(Carrot_File_Data.JsonData);
+        app.file.Open_file(Act_import_data_json_done);
     }
 
     private void Act_import_data_json_done(string[] path)
@@ -600,9 +596,8 @@ public class Card_ID : MonoBehaviour
     private void Act_export_data_json()
     {
         app.carrot.play_sound_click();
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Json Data", ".json", ".jsons"), new FileBrowser.Filter("Text Data", ".txt"));
-        FileBrowser.SetDefaultFilter(".json");
-        FileBrowser.ShowSaveDialog(Act_export_data_json_done, null, FileBrowser.PickMode.Files);
+        app.file.Set_filter(Carrot_File_Data.JsonData);
+        app.file.Save_file(Act_export_data_json_done);
     }
 
     private void Act_export_data_json_done(string[] path)

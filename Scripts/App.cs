@@ -44,8 +44,6 @@ public class App : MonoBehaviour
 
     private Carrot_Box box;
     private Carrot_Box box_layout;
-    private Text txt_infor_edit_temp = null;
-    private Carrot_Window_Input box_input;
     private Card_ID card_id_cur = null;
     private int index_style_select = 0;
     private int index_bk_select = 0;
@@ -55,6 +53,11 @@ public class App : MonoBehaviour
         QualitySettings.antiAliasing = 0;
         this.carrot.Load_Carrot(this.Check_exit_app);
         this.carrot.game.load_bk_music(this.sound_bk);
+
+        if (carrot.os_app == OS.Android)
+            this.file.type = Carrot_File_Type.SimpleFileBrowser;
+        else
+            this.file.type = Carrot_File_Type.StandaloneFileBrowser;
 
         this.image_btn_visible.sprite = this.carrot.icon_carrot_visible_off;
 
@@ -111,9 +114,8 @@ public class App : MonoBehaviour
 
     private void Act_add_file_photo_for_bk()
     {
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
-        FileBrowser.ShowLoadDialog(Act_done_file_select_bk, null, FileBrowser.PickMode.Files);
+        file.Set_filter(Carrot_File_Data.Image);
+        file.Open_file(Act_done_file_select_bk,null);
     }
 
     private void Act_done_file_select_bk(string[] path)
@@ -205,14 +207,14 @@ public class App : MonoBehaviour
 
     public void Btn_screenshots()
     {
+        carrot.ads.show_ads_Interstitial();
         this.obj_menu_bottom.SetActive(false);
         this.obj_menu_right.SetActive(false);
         this.obj_menu_left.SetActive(false);
         carrot.play_sound_click();
 
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
-        FileBrowser.ShowSaveDialog(Act_save_screenshots_done, Act_save_screenshots_cancel, FileBrowser.PickMode.Files);
+        file.Set_filter(Carrot_File_Data.Image);
+        file.Save_file(Act_save_screenshots_done, Act_save_screenshots_cancel);
     }
 
     private void Act_save_screenshots_cancel()
@@ -244,8 +246,6 @@ public class App : MonoBehaviour
 
         this.carrot.Show_msg("Save image", "Save Image success!\nAt:" + paths[0], Msg_Icon.Success);
 
-        FileBrowser.SetFilters(true, new FileBrowser.Filter("Images", ".jpg", ".png", ".jpeg"), new FileBrowser.Filter("Pain", ".bmp", ".tiff", ".tga"));
-        FileBrowser.SetDefaultFilter(".jpg");
         FileBrowserHelpers.WriteBytesToFile(paths[0], bytes);
 
         this.obj_menu_bottom.SetActive(true);
@@ -260,7 +260,13 @@ public class App : MonoBehaviour
 
     public void Btn_zoom_out()
     {
-        this.tr_panel_card.transform.localScale = new Vector3(this.tr_panel_card.transform.localScale.x - this.steep_zoom, this.tr_panel_card.transform.localScale.y - this.steep_zoom, 1f);
+        if(this.tr_panel_card.transform.localScale.x>0) this.tr_panel_card.transform.localScale = new Vector3(this.tr_panel_card.transform.localScale.x - this.steep_zoom, this.tr_panel_card.transform.localScale.y - this.steep_zoom, 1f);
+
+        if (this.tr_panel_card.transform.localScale.x < 0)
+        {
+            this.tr_panel_card.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+            this.carrot.play_vibrate();
+        }
     }
 
     public void Btn_zoom_in()
@@ -271,21 +277,6 @@ public class App : MonoBehaviour
     public void Btn_zoom_reset()
     {
         this.tr_panel_card.transform.localScale = new Vector3(1f, 1f, 1f);
-    }
-
-    public void Show_edit_info_item(Text txt)
-    {
-        carrot.play_sound_click();
-        this.txt_infor_edit_temp = txt;
-        this.box_input = this.carrot.Show_input("Edit info Item", "Edit info Item", txt.text);
-        this.box_input.set_act_done(Act_done_edit_info_item);
-    }
-
-    private void Act_done_edit_info_item(string val)
-    {
-        carrot.play_sound_click();
-        this.txt_infor_edit_temp.text = val;
-        if (this.box_input != null) this.box_input.close();
     }
 
     public void Btn_list_style_card_id()
@@ -372,6 +363,7 @@ public class App : MonoBehaviour
 
     private void Load_style_card(int index)
     {
+        carrot.ads.show_ads_Interstitial();
         PlayerPrefs.SetInt("index_style_select", index);
         this.index_style_select = index;
         carrot.clear_contain(this.arean_all_card);
@@ -393,7 +385,13 @@ public class App : MonoBehaviour
 
     public void Btn_bk_zoom_out()
     {
-        this.img_bk_card.transform.localScale = new Vector3(this.img_bk_card.transform.localScale.x - this.steep_zoom, this.img_bk_card.transform.localScale.y - this.steep_zoom, 1f);
+        if(this.img_bk_card.transform.localScale.x>0) this.img_bk_card.transform.localScale = new Vector3(this.img_bk_card.transform.localScale.x - this.steep_zoom, this.img_bk_card.transform.localScale.y - this.steep_zoom, 1f);
+
+        if (this.img_bk_card.transform.localScale.x < 0)
+        {
+            this.img_bk_card.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+            this.carrot.play_vibrate();
+        }
     }
 
     public void Btn_bk_zoom_in()

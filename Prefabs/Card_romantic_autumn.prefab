@@ -1249,7 +1249,7 @@ RectTransform:
   m_GameObject: {fileID: 7897323944450413619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7430812767326962860}
@@ -1287,9 +1287,7 @@ MonoBehaviour:
   s_tip: Card with romantic autumn and gentle warm tones with integrated avatar photo
   s_keyword_space: 
   max_length_keyword_space: 0
-  index_date_publish: -1
   layout: []
-  is_auto_load_code: 0
   qr_index: 
   panel_info: {fileID: 6997514133020431364}
   obj_item:
@@ -1304,35 +1302,36 @@ MonoBehaviour:
   - {fileID: 8186795195878910699}
   obj_types: 010000000000000000000000000000000000000000000000000000000000000000000000
   s_name_item:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wedding photo
+  - Card title
+  - Opening remarks for your wedding event
+  - Invitation
+  - Groom's name
+  - Bride's name
+  - Introduction
+  - Address
+  - Social
   s_tip_item:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Choose a photo to represent the wedding invitation
+  - Enter a title for the card
+  - Introduction under the title of the wedding invitation
+  - Enter an invitation to the party
+  - Enter the groom's name
+  - Enter the bride's name
+  - Typing introduces the love of the bride and groom or describes the important
+    event of the wedding
+  - Enter the address and time of the event location
+  - Enter your facebook link or some other social networking site link
   sp_icon_item:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 26117a546c2b06445b81097d129f4df5, type: 3}
+  - {fileID: 21300000, guid: a8703811f3779d54aa57bb9b3030dc86, type: 3}
+  - {fileID: 21300000, guid: bb0a05d137cd4f84098cac77ab3285fe, type: 3}
+  - {fileID: 21300000, guid: 7f5e0f8c918712e4ab33ec258ad1844d, type: 3}
+  - {fileID: 21300000, guid: 6208b510c5037644b89a34a5213990f9, type: 3}
+  - {fileID: 21300000, guid: 55538982356e0ef4cb5bc2459757b329, type: 3}
+  - {fileID: 21300000, guid: 58edc83812032a14399057ee06a50fc3, type: 3}
+  - {fileID: 21300000, guid: 2192c1071baa57e45b5dbf180d701056, type: 3}
+  - {fileID: 21300000, guid: a81b655be664d824fae332ded21127b8, type: 3}
 --- !u!1 &8186795195878910699
 GameObject:
   m_ObjectHideFlags: 0
