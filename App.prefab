@@ -3475,6 +3475,7 @@ MonoBehaviour:
   - {fileID: 7897323944450413619, guid: 1e0e06e2300abd048b081a451dc1c675, type: 3}
   - {fileID: 7897323944450413619, guid: d0551eaab2498024c89364ae117a765f, type: 3}
   - {fileID: 7897323944450413619, guid: 2d6ea753743c7dd4fb4c5212f6047bb6, type: 3}
+  - {fileID: 7897323944450413619, guid: 2a582970ebbfdb343ab6f38fbbd5b23a, type: 3}
   icon_camera: {fileID: 21300000, guid: e2dcbcefac2693548b43e454aa586d6a, type: 3}
   icon_cardID: {fileID: 21300000, guid: 0bac8def07435cf4d86d89e634640c68, type: 3}
   icon_uppercase: {fileID: 21300000, guid: bc055a4c979caa547b3bd8717116fe7c, type: 3}

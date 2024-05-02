@@ -153,7 +153,7 @@ public class App : MonoBehaviour
 
     private void Load_bk_img(int index)
     {
-        if (index >= this.list_sp_bk.Length)
+        if (index >= this.list_bk_img.Count)
         {
             this.img_bk_card.sprite = this.list_bk_img[0];
         }
